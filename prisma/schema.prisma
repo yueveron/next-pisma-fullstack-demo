@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum CustomerLevel {
+  NORMAL
+  IMPORTANT
+  VIP
+}
+
+model Customer {
+  id        String        @id @default(cuid())
+  name      String
+  level     CustomerLevel @default(NORMAL)
+  contact   String?
+  phone     String?
+  email     String?
+  remark    String?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
