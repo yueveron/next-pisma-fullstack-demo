@@ -1,14 +1,17 @@
+---
+description: 适用于所有 React、Ant Design 5.x 组件开发以及完整的 B端 CRUD 模块创建场景
+globs: "**/*.{ts,tsx,js,jsx}"
+---
+
 # B 端后台管理系统组件开发规范
 
 ## 核心技术栈
 
-- 框架: React 18+ (Hooks / Functional Components)
-- 构建：Vite 6.2（ManualChunks 分包优化）
+- 核心框架：Next.js 16.x (App Router 路由，默认开启 Turbopack 超级编译器)
+- 底层依赖：React 19.x (全面启用 React 19 原生高级特性)
 - UI 库: Ant Design 5.x
 - 全局状态：React Context（仅限全局配置/页签状态，严禁滥用导致大面积重绘）
-- HTTP ：Axios 拦截器封装，统一 GET/POST wrapper，Mock 模式支持
-- 语言: TypeScript (严格类型，禁止使用 any)
-- 代码质量：ESLint 9 + Prettier + Husky + lint-staged + Commitlint
+- 数据交互：统一使用 Next.js 16 的 Server Actions 进行安全数据库/后端读写。如果是拉取外部三方接口，统一使用封装好的 Axios wrapper。
 
 ## 编写原则
 
